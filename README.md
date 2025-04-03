@@ -48,7 +48,7 @@ Se implemento la siguiente base de datos para el manejo de la posibles habilidad
 
 1. Debes tener instalada la aplicación de NetBeans 17.0.12 o otro navegador compatible para ejecutar el archivo.
 
-2. clonar el repositorio y abrirlo en un servicio compatible. 
+2. clonar el repositorio y abrirlo .
 
 - Para clonar el repositorio escribe el siguiente comando en git bash.
 
