@@ -47,13 +47,13 @@ public class Vista {
     public ModeloMisionNinja comMision(){
         System.out.println("---------Actualizar Fecha fin-------------\n");
         Scanner scan= new Scanner(System.in);
-        System.out.println("Ingrese la id de la mision : ");
+        System.out.println("Ingrese la id: ");
+        int idecita=scan.nextInt();
         scan.nextLine();
-        int idem=scan.nextInt();
         System.out.println("Ingrese la fecha fin: ");
-        String fechaIni=scan.nextLine();
+        String fechaFin=scan.nextLine();
         
-        return new ModeloMisionNinja(idem,fechaIni);
+       return new ModeloMisionNinja(idecita,fechaFin);
     
     
     

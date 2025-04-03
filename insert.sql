@@ -1,3 +1,5 @@
+
+
 insert into Ninja(Nombre,Rango,Aldea)values
 ("camilo","alto","villaConcha"),
 ("yefi","alto","villaDragon"),
@@ -15,9 +17,9 @@ insert into Mision(Descripcion,Rango,Recompensa)values
 insert into MisionNinja(Id_Ninja,Id_Mision,FechaInicio,FechaFin)values
 (1,1,"2025-02-01",null),
 (2,2,"2025-01-15","2025-01-16"),
-(3,1,"2025-02-01",null),
-(2,1,"2025-02-01","2025-02-11"),
-(4,1,"2025-02-01",null);
+(3,4,"2025-02-01",null),
+(2,3,"2025-02-01","2025-02-11"),
+(4,5,"2025-02-01",null);
 
 insert into Habilidad(Id_Ninja,Nombre,Descripcion)values
 (1,"Velocidad y camuflaje","Les permite atacar a su opnente rapidamente"),

@@ -20,14 +20,15 @@ public class ModeloMisionNinja {
     public ModeloMisionNinja(int id1) {
          this.id = id1;
     }
-    public ModeloMisionNinja(int id1, int idem, String fechaIni) {
-        this.idNinja = idNinja;
-        this.idMision = idMision;
-        this.fechaInicio = fechaInicio;
+
+    public ModeloMisionNinja(int id2, int idem, String fechaIni) {
+        this.idNinja = id2;
+        this.idMision = idem;
+        this.fechaInicio = fechaIni;
     }
-    public ModeloMisionNinja(int idem, String fechaIni) {
-        this.idMision = idMision;
-        this.fechaInicio = fechaInicio;
+    public ModeloMisionNinja(int id,String fechafin) {
+        this.id = id;
+        this.fechafin = fechafin;
     }
     public int getId() {
         return id;

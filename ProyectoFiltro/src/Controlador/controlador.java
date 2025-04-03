@@ -98,15 +98,20 @@ public class controlador {
                     
                 break;
                 case 6:
-                     System.out.println("");
+                    System.out.println("---------Misiones completadas-------------\n");
+                    List<String> listaMisiones= new ArrayList<>();
+                    listaMisiones=Consultas.MisionesCompletadas();
+                    for(String misiones: listaMisiones){
+                        System.out.println(misiones + "\n-----------------------------------");
+
+                    }
+                    
                 break;
                 case 7:
-                     System.out.println("");
-                break;
-                case 8: 
-                    System.out.println("Haz abandona el programa :(");
+                     System.out.println("Haz abandona el programa :(");
                     bool=false;
                 break;
+                
             
             
             }
