@@ -11,13 +11,11 @@ public class ModeloDAO {
     private String password="E7Tq5WcIa7WIvgxAy9sx";
     
     private Connection conect() throws SQLException {
-    
-        System.out.println("Conectado a la base de datos");
         return DriverManager.getConnection(url, user, password);
     
     }
     
-    // Obtener nijas y habilidades 
+    // 1. Obtener nijas y habilidades 
     
     
     public List<String> obtenerNinjas(){
@@ -39,7 +37,7 @@ public class ModeloDAO {
             }
         
         }catch(SQLException e){
-            System.out.println("Error al mostrar");
+            System.out.println("Error al imprimir en el servidor.");
             System.out.println(e);
         
         
@@ -49,7 +47,7 @@ public class ModeloDAO {
     
     }
     
-    //Mostrar las misiones disponibles para un ninja específico.
+    //2. Mostrar las misiones disponibles para un ninja específico.
     
     public List<String> MisionesNinjas(ModeloMision mision){
         String sql="select * from  Mision m inner join MisionNinja mn on m.Id=mn.Id_Mision where Id_Ninja=?  and mn.FechaFin is null   ";
@@ -69,7 +67,7 @@ public class ModeloDAO {
             }
         
         }catch(SQLException e){
-            System.out.println("Error al mostrar");
+            System.out.println("Error al imprimir en el servidor.");
             System.out.println(e);
         
         
@@ -78,7 +76,7 @@ public class ModeloDAO {
     
     
     }
-    //Mostrar las misiones completadas para un ninja específico.
+    //3. Mostrar las misiones completadas para un ninja específico.
     public List<String> MisionesNinjasCompletadas(ModeloMisionNinja misionN){
         String sql="select mn.FechaInicio as fechaI,mn.FechaFin as Fechaf, m.* from  Mision m inner join MisionNinja mn on m.Id=mn.Id_Mision where mn.Id_Ninja=? and mn.FechaFin is not null ";
         List<String> listaMisionNinja =new ArrayList<>();
@@ -99,7 +97,7 @@ public class ModeloDAO {
             }
         
         }catch(SQLException e){
-            System.out.println("Error al mostrar");
+            System.out.println("Error al imprimir en el servidor.");
             System.out.println(e);
         
         
@@ -108,41 +106,30 @@ public class ModeloDAO {
     
     
     }
-    //Asignar una misión a un ninja, registrando la fecha de inicio.
+    //4. Asignar una misión a un ninja, registrando la fecha de inicio.
     public List<String> asignarMision(ModeloMisionNinja misionN1){
         String sql="insert into MisionNinja(Id_Ninja,Id_Mision,FechaInicio,FechaFin) values (?,?,?,?) ";
-        String sql2="select * from MisionNinja";
         List<String> listaMisionNinja33 =new ArrayList<>();
         try(
             Connection conexionInterna= conect();
-            PreparedStatement solicitud1= conexionInterna.prepareStatement(sql2);
             PreparedStatement solicitud= conexionInterna.prepareStatement(sql)){
             String FechaFin=null;
-            ResultSet resultado=solicitud1.executeQuery();
             solicitud.setInt(1,misionN1.getIdNinja());
             solicitud.setInt(2,misionN1.getIdMision());
             solicitud.setString(3,misionN1.getFechaInicio());
             solicitud.setString(4,FechaFin);
             int filas= solicitud.executeUpdate();
-            while (resultado.next()){
-                
-                listaMisionNinja33.add("\n"+"ID: "+resultado.getInt("Id")+"\n"+"Id_Ninja: "+
-                        resultado.getInt("Id_Ninja")+"\n"+"Id_mision: "+
-                        resultado.getInt("Id_Mision")+"\n"+"FechaInicio: "+
-                        resultado.getString("fechaInicio")+"\n"+"FechaFin: "+
-                        resultado.getString("Fechafin")+"\n");
-                
-            }
+            
             if(filas>0){
-                 System.out.println("usuario actualizado correctamente");
+                 System.out.println("Se agrego la nueva mision al ninja de manera correcta");
             }else{
             
-                System.out.println("no se puede actualizar el usuario con la id " );
+                System.out.println("No se puede agrego la nueva mision al ninja " );
             
             }
         
         }catch(SQLException e){
-            System.out.println("Error al mostrar");
+            System.out.println("Error al imprimir en el servidor.");
             System.out.println(e);
         
         
@@ -153,7 +140,7 @@ public class ModeloDAO {
     
     
     }
-    //Marcar una misión como completada, registrando la fecha de finalización.
+    //5. Marcar una misión como completada, registrando la fecha de finalización.
     public void misionComple(ModeloMisionNinja misionN1){
         String sql="update MisionNinja set FechaFin=? where Id=? ";
       
@@ -164,22 +151,22 @@ public class ModeloDAO {
             solicitud.setInt(2,misionN1.getId());
             int filas= solicitud.executeUpdate();
             if(filas>0){
-                 System.out.println("usuario actualizado correctamente");
+                 System.out.println("Registro de la mision completado con exito");
             }else{
             
-                System.out.println("no se puede actualizar el usuario con la id" );
+                System.out.println("Fallo el registro de la misiom" );
             
             }
         
         }catch(SQLException e){
-            System.out.println("Error al mostrar");
+            System.out.println("Error al imprimir en el servidor.");
             System.out.println(e);
         
         
         }
     
     }
-    // Mostrar todas las misiones completadas
+    // 6. Mostrar todas las misiones completadas
      public List<String> MisionesCompletadas(){
         String sql="select mn.FechaInicio as fechaI,mn.FechaFin as Fechaf, m.* from  Mision m inner join MisionNinja mn on m.Id=mn.Id_Mision where mn.FechaFin is not null ";
         List<String> listaMisionNinja =new ArrayList<>();
@@ -199,7 +186,7 @@ public class ModeloDAO {
             }
         
         }catch(SQLException e){
-            System.out.println("Error al mostrar");
+            System.out.println("Error al imprimir en el servidor.");
             System.out.println(e);
         
         

@@ -9,9 +9,8 @@ import java.util.*;
 
 public class Vista {
     public ModeloMision ListarMisionId(){
-        System.out.println("---------ListarMision Por ID Ninja-------------\n");
         Scanner scan= new Scanner(System.in);
-        System.out.println("Ingrese la id: ");
+        System.out.println("Ingrese la id del ninja: ");
         int id=scan.nextInt();
         return new ModeloMision(id);
     
@@ -19,7 +18,6 @@ public class Vista {
     
     }
     public ModeloMisionNinja ListarMisionCompletadasId(){
-        System.out.println("---------ListarMision Por ID Ninja-------------\n");
         Scanner scan= new Scanner(System.in);
         System.out.println("Ingrese la id del ninja: ");
         int ide=scan.nextInt();
@@ -29,7 +27,6 @@ public class Vista {
     
     }
      public ModeloMisionNinja agendarMision(){
-        System.out.println("---------Agendar misiones-------------\n");
         Scanner scan= new Scanner(System.in);
         System.out.println("Ingrese la id del ninja: ");
         int ide2=scan.nextInt();
@@ -45,7 +42,6 @@ public class Vista {
     
     }
     public ModeloMisionNinja comMision(){
-        System.out.println("---------Actualizar Fecha fin-------------\n");
         Scanner scan= new Scanner(System.in);
         System.out.println("Ingrese la id: ");
         int idecita=scan.nextInt();

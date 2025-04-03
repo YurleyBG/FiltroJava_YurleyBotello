@@ -51,9 +51,10 @@ public class controlador {
             
             switch(opcion){
                 case 1: 
-                    System.out.println("---------Listar Ninjas-------------\n");
+                    System.out.println("---------NINJAS------------\n");
                     List<String> listaNinja= new ArrayList<>();
                     listaNinja=Consultas.obtenerNinjas();
+                    System.out.println("------------------------------------------");
                     for(String ninjas: listaNinja){
                         System.out.println(ninjas + "\n-----------------------------------");
 
@@ -61,9 +62,11 @@ public class controlador {
                     
                 break;
                 case 2:
+                    System.out.println("-----------MISIONES DISPONIBLES----------\n");
                     List<String> listaMision= new ArrayList<>();
                     ModeloMision mision= vistas.ListarMisionId();
                     listaMision=Consultas.MisionesNinjas(mision);
+                    System.out.println("------------------------------------------");
                     for(String misio: listaMision){
                         System.out.println(misio + "\n-----------------------------------");
 
@@ -72,9 +75,11 @@ public class controlador {
                     
                 break;
                 case 3:
+                    System.out.println("-----------MISIONES COMPLETADAS POR NINJA----------\n");
                     List<String> listaMisionNinja1= new ArrayList<>();
                     ModeloMisionNinja misioncomple=vistas.ListarMisionCompletadasId();
                     listaMisionNinja1=Consultas.MisionesNinjasCompletadas(misioncomple);
+                    System.out.println("------------------------------------------");
                     for(String misioN: listaMisionNinja1){
                         System.out.println(misioN + "\n-----------------------------------");
 
@@ -82,25 +87,29 @@ public class controlador {
                 break;
                 case 4:
                     
-                    
-                    System.out.println("");
+                    System.out.println("-----------AGENDAR MISION----------\n");
                     List<String> listaMisionNinja12= new ArrayList<>();
                     ModeloMisionNinja asigmisio=vistas.agendarMision();
                     listaMisionNinja12=Consultas.asignarMision(asigmisio);
+                    System.out.println("------------------------------------------");
                     for(String misioN: listaMisionNinja12){
                         System.out.println(misioN + "\n-----------------------------------");
 
                     }
                 break;
                 case 5:
+                    System.out.println("-----------AGENDAR NUEVA MISION COMPLETADA----------\n");
+                    System.out.println("------------------------------------------");
                     ModeloMisionNinja misiocom=vistas.comMision();
                     Consultas.misionComple(misiocom);
                     
                 break;
                 case 6:
-                    System.out.println("---------Misiones completadas-------------\n");
+                    System.out.println("---------MISIONES COMPLETADAS-------------\n");
+                    
                     List<String> listaMisiones= new ArrayList<>();
                     listaMisiones=Consultas.MisionesCompletadas();
+                    System.out.println("------------------------------------------");
                     for(String misiones: listaMisiones){
                         System.out.println(misiones + "\n-----------------------------------");
 
@@ -108,7 +117,7 @@ public class controlador {
                     
                 break;
                 case 7:
-                     System.out.println("Haz abandona el programa :(");
+                    System.out.println("Haz abandona el programa :(");
                     bool=false;
                 break;
                 
